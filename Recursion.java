@@ -4,7 +4,8 @@ class Recursion{
 	StringBuilder res, bin;
 	
 	Recursion(){
-		res=new StringBuilder();
+		res = new StringBuilder();
+		bin = new StringBuilder();
 	}
 
 	public void printNumbers(int n){
