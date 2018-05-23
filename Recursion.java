@@ -1,14 +1,14 @@
 import java.util.*;
 class Recursion{
 
-	StringBuilder res;
+	StringBuilder res, bin;
 	
 	Recursion(){
 		res=new StringBuilder();
 	}
 
 	public void printNumbers(int n){
-		if(n==1) System.out.println(1);
+		if(n==1);
 			else
 				printNumbers(n-1);
 		System.out.println(n);
@@ -54,10 +54,18 @@ class Recursion{
 		return arr[i]+sum(arr, i+1);
 	}
 
+	public void decimalToBinary(int rem){
+	if(rem <=1) 
+		 bin.append(String.valueOf(rem%2)); 
+		else {
+				decimalToBinary(rem/2);
+				bin.append(String.valueOf(rem%2));
+			}
+	}
 	public static void main(String args[]){
 		Scanner sc = new Scanner(System.in);
 		Recursion obj = new Recursion();
-		System.out.println("1. printNumbers\n2. printMultiples\n3. stringReverse\n4. isPalindrome\n5 nthFibonacci\n6. factorial\n7. sum");
+		System.out.println("1. printNumbers\n2. printMultiples\n3. stringReverse\n4. isPalindrome\n5 nthFibonacci\n6. factorial\n7. sum\n8. decimalToBinary");
 		int cs = Integer.parseInt(sc.nextLine());
 		try{
 			switch(cs){
@@ -88,6 +96,10 @@ class Recursion{
 						for(int i=0; i<arr.length; i++)
 							arr[i] = sc.nextInt();
 						System.out.println("Sum of elements: "+obj.sum(arr,0));
+						break;
+				case 8: System.out.println("Enter a number to convert it into binary: ");
+						obj.decimalToBinary(Integer.parseInt(sc.nextLine()));
+						System.out.println(obj.bin);
 						break;
 				default : System.out.println("Coming soon");
 			}
