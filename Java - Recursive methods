@@ -1,0 +1,98 @@
+/*
+* Some of the Recursive methods to solve simple to complex problems using java
+*/
+
+class Recursion{
+
+	StringBuilder res, bin;
+	char choice;
+	Recursion(){
+		res=new StringBuilder();
+		bin = new StringBuilder();
+	}
+
+	public void printNumbers(int n){
+		if(n==1) System.out.println(1);
+			else{
+				printNumbers(n-1);
+			
+		System.out.println(n);
+	}
+}
+
+	public void printMultiples(int n, int k){
+		if(k==1) System.out.println(n);
+		else {
+		printMultiples(n,k-1);
+		System.out.println(n*k);
+		}
+	}
+
+	public void stringReverse(String s, int i){
+		if(i==s.length()-1) {
+			res.append(s.charAt(i));
+			}
+		else {
+			stringReverse(s, i+1);
+			res.append(s.charAt(i));
+		}
+	}
+
+	public boolean isPalindrome(String s, int i){
+			if(s.charAt(i) != s.charAt(s.length()-i-1)) return false;
+			if(i<s.length()-1) return isPalindrome(s, i+1);			
+		return true;
+	}
+
+	public int nthFibonacci(int n){
+		if(n == 0 || n==1) return 1;
+		return nthFibonacci(n-1)+nthFibonacci(n-2);
+	}
+
+	public int factorial(int n){
+		if(n==1) return n;
+		else return n*factorial(n-1);
+	}
+
+	public int sum(int[] arr, int i){
+		if(i==arr.length-1)
+			return arr[i];
+		return arr[i]+sum(arr, i+1);
+	}
+
+	public void decimalToBinary(int rem){
+		if(rem <=1) {
+		 bin.append(String.valueOf(rem%2)); 
+		}
+		else {
+				decimalToBinary(rem/2);
+				bin.append(String.valueOf(rem%2));
+			}
+	}
+
+	public int divide(int a, int b){
+		if(a<b) return 0;
+		else {
+			return 1+divide(a-b, b);
+		}
+	}
+
+	//power positive
+	public double simplePower(double base, int power){
+	 	if(power == 0) return 1;
+	 	else return base * simplePower(base, power-1);
+
+	}
+
+	//power can be negative
+	public double complexPower(double base, int power){
+		if(power == 0) return 1;
+		if(power<0) return (1.0/(complexPower(base,-power)));
+		else return base*complexPower(base, power -1);
+	}
+
+	public int gcd(int a, int b){
+		if(b==0) return a;
+		return gcd(b,a%b);
+	}
+}
